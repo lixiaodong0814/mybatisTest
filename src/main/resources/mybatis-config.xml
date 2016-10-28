@@ -12,6 +12,22 @@
 		-->
 	</properties>
 	
+	<!--别名-->
+	<typeAliases>
+		<!--
+		<typeAlias type="com.maiziedu.demo.mybatis.bean.Student" alias="Student"/>
+		-->
+		<package name="com.maiziedu.demo.mybatis.bean"/>
+	</typeAliases>
+	
+	<!--自定义的类型转换器(typeHandler)-->
+	<typeHandlers>
+	    <typeHandler handler="com.maiziedu.demo.mybatis.typehandler.MyDemoTypeHandler" javaType="String" jdbcType="INTEGER"/>
+	</typeHandlers>
+	
+	<objectFactory type="com.maiziedu.demo.mybatis.objfactory.DemoObjFactory">
+		<property name="name" value="cf"/>
+	</objectFactory>
 	
 	<environments default="development">
 		<environment id="development">
@@ -33,9 +49,17 @@
 				<property name="password" value="${password}"/>
 			</dataSource>
 		</environment>
-		
+
 	</environments>
 	
+	<!--多数据源-->
+	<databaseIdProvider type="DB_VENDOR">
+		<property name="SQL_SERVER" value="sqlserver"/>
+		<property name="DB2" value="db2"/>
+		<property name="Oracle" value="oracle"/>
+	</databaseIdProvider>
+	
+	<!--映射文件-->
 	<mappers>
 		<mapper resource="com/maiziedu/demo/mybatis/mapper/StudentMapper.xml"/>
 	</mappers>
