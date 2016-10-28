@@ -42,12 +42,13 @@ public class App
 
 				System.out.println(student.getName());
 				System.out.println(student.getBirthday().toString());
+				System.out.println(student.getGender());
 			} finally {
 				session.close();
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 	}
 }
