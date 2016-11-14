@@ -27,7 +27,7 @@ public class App4jdbcDemo {
 			con.setAutoCommit(false);
 
 			//语句中大小写没有区分
-			/*String sql = "select * from Student where ID = ?";
+			String sql = "select * from Student where ID = ?";
 			stmt = con.prepareStatement(sql);
 			stmt.setLong(1, new Long(1));
 
@@ -39,24 +39,24 @@ public class App4jdbcDemo {
 				String name = rs.getString("NAME");
 				System.out.println("ID[" + id + "]:" + name + "生日是:" + birthday);
 			}
-			rs.close();*/
+			rs.close();
 			//2-1插入student
-			String insertSql = "insert into Student(ID, BIRTHDAY, NAME) values(?, ?, ?)";
+		/*	String insertSql = "insert into Student(ID, BIRTHDAY, NAME) values(?, ?, ?)";
 			stmt = con.prepareStatement(insertSql);
-			stmt.setLong(1, new Long(4));
+			stmt.setLong(1, new Long(5));
 			stmt.setDate(2, java.sql.Date.valueOf("1994-12-12"));
-			stmt.setString(3, "李六");
+			stmt.setString(3, "田七");
 			
 			stmt.execute();
-			System.out.println("1 student insert");
+			System.out.println("1 student insert");*/
 			
-			String insertOperSql = "insert into OPERLOG(OPERTYPE, OPERDATE) values(?, ?)";
+		/*	String insertOperSql = "insert into OPERLOG(OPERTYPE, OPERDATE) values(?, ?)";
 			stmt = con.prepareStatement(insertOperSql);
 			stmt.setString(1, "插入操作");
-			stmt.setDate(2, java.sql.Date.valueOf("2016-10-28"));
+			stmt.setDate(2, java.sql.Date.valueOf("2016-11-02"));
 		//	throw new RuntimeException();
 			stmt.execute();
-			System.out.println("1 operlog insert");
+			System.out.println("1 operlog insert");*/
 			
 			con.commit();
 		} catch (Exception e) {

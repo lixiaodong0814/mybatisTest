@@ -8,7 +8,8 @@ import org.apache.ibatis.type.Alias;
 public class Student {
 	private String id;
 	private String name;
-	private Date birthday;
+//	private Date birthday;
+	private Date brt;
 	private String gender;
 	
 	public String getId() {
@@ -23,17 +24,23 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+//	public Date getBirthday() {
+//		return birthday;
+//	}
+//	public void setBirthday(Date birthday) {
+//		this.birthday = birthday;
+//	}
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	public Date getBrt() {
+		return brt;
+	}
+	public void setBrt(Date brt) {
+		this.brt = brt;
 	}
 	
 }

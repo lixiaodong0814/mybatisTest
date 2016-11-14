@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maiziedu.demo.mybatis.mapper.ScoreMapper">
+
+	<resultMap type="Score" id="ScoreResult">
+		<result column="KEMU_NAME" property="kemu"/>
+		<result column="SCORE" property="score"/>
+		<association property="stu" javaType="Student1">
+			<result column="id" property="id"/>
+			<result column="name" property="name"/>
+			<!--   -->
+			<result column="gender" property="gender" javaType="String" jdbcType="INTEGER"/>
+			
+		</association>
+		
+	</resultMap>
+
+	<select id="getScoreByStudentandKeMu" parameterType="Score" resultMap="ScoreResult">
+	select
+		SC.KEMU_NAME,
+		SC.SCORE,
+		ST.ID,
+		ST.NAME,
+		ST.GENDER
+	from
+		SCORE SC, STUDENT ST 
+	<!-- where SC.STUDENT_ID = ST.ID  -->
+		<!-- <if test="stu.id != null">
+			and ST.ID = #{stu.id}
+		</if>
+		<if test="kemu != null">
+			and SC.KEMU_NAME = #{kemu};
+		</if>
+	 	<if test="stu.gender != null">
+	 		and ST.gender = #{stu.gender}
+	 	</if> -->
+		<!-- <choose>
+			
+			<when test="stu.id != null">
+				and ST.ID = #{stu.id}
+			</when>
+			<otherwise>
+				and ST.gender = #{stu.gender}
+			</otherwise>
+			
+		</choose> -->
+		<where>
+			SC.STUDENT_ID = ST.ID
+				<if test="stu.id != null">
+				    and ST.ID = #{stu.id}	
+				</if>
+				<if test="stu.gender != null">
+				    and ST.gender = #{stu.gender};
+				</if>
+			    
+		</where>  
+	</select>
+
+</mapper>
