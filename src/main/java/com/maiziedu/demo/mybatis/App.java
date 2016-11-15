@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.maiziedu.demo.mybatis.bean.Score;
 import com.maiziedu.demo.mybatis.bean.Student;
+import com.maiziedu.demo.mybatis.bean.page.StudentPage;
 import com.maiziedu.demo.mybatis.mapper.OperMapper;
 import com.maiziedu.demo.mybatis.mapper.ScoreMapper;
 import com.maiziedu.demo.mybatis.mapper.StudentMapper;
@@ -94,9 +95,17 @@ public class App
 				ids.add(new Long(3));
 				System.out.println(mapper.queryStudentByIds(ids).size());*/
 				
-				Student stu = new Student();
+				/*Student stu = new Student();
 				stu.setName("xd");
-				System.out.println(mapper.queryStudentByName(stu));
+				System.out.println(mapper.queryStudentByName(stu));*/
+				
+				StudentPage page = new StudentPage();
+				page.getPage().setPageNo(1);
+				
+				List<Student> stus = mapper.listAllStudents(page);//mapper.getTop3Student(page);
+				for (Student stu: stus) {
+					System.out.println(stu.getId());
+				}
 				
 				session.commit();
 				System.out.println("操作成功");

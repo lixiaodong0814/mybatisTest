@@ -1,0 +1,5 @@
+com\maiziedu\demo\mybatis\utils\ReflectUtil.class
+com\maiziedu\demo\mybatis\App.class
+com\maiziedu\demo\mybatis\typehandler\MyDemoTypeHandler.class
+com\maiziedu\demo\jdbc\App4jdbcDemo.class
+com\maiziedu\demo\mybatis\objfactory\DemoObjFactory.class

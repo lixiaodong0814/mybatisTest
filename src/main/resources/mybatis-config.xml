@@ -41,6 +41,11 @@
 		<plugin interceptor="com.maiziedu.demo.mybatis.plugin.ShowSqlPlugin">
 			<property name="someProperty" value="100" />
 		</plugin>
+		
+		<plugin interceptor="com.maiziedu.demo.mybatis.plugin.page.PageSupportPlugin">
+			<property name="databaseType" value="mysql"/>
+		</plugin>
+		
 	</plugins>
 	
 	

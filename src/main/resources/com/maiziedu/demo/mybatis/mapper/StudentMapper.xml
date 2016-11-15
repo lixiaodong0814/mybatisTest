@@ -20,7 +20,7 @@
 		from Student where ID in (1, 2, 3)
 	</select>
 	
-		
+	<!-- databaseId="sqlserver" -->	
 	<select id="queryStudentByIds" resultMap="studentResult">
 	select 
 		id, 
@@ -46,6 +46,32 @@
 		<!-- from Student where name like '%${name}%' -->
 		from Student where name like #{pattern}
 	</select>
+	
+	<select id="listAllStudents" resultType="Student1" parameterType="Student1">
+      <!--  select count(*) from ( -->
+       	select 
+       		id,
+       		name,
+       		birthday as brt,
+       		gender
+       	from
+       		Student<!-- ) as temp -->
+    </select>
+    
+    <select id="getTop3Student" resultType="Student1" parameterType="Student1">
+       select
+       	id,
+       	name,
+       	birthday as brt
+       from
+       	Student order by birthday desc limit #{page.pageNo}, #{page.pageSize}
+    </select>
+
+    <select id="getStudent" parameterType="int" resultType="Student1">
+        select id,name,birthday from student where id = #{id};
+    </select>
+    
+    
 	
 	<insert id="insertStudent" parameterType="Student1">
 		insert into Student(id, name, birthday, gender) values(#{id}, #{name}, #{birthday},
