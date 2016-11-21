@@ -11,7 +11,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class App2 {
 	public static void main(String[] args) {
-		MysqlDataSource ds = new MysqlDataSource();
+		/*MysqlDataSource ds = new MysqlDataSource();
 		ds.setServerName("localhost");
 		ds.setPortNumber(3306);
 		ds.setDatabaseName("test");
@@ -21,8 +21,8 @@ public class App2 {
 		TransactionFactory transactionFactory = new JdbcTransactionFactory();
 		Environment environment = new Environment("development", transactionFactory, ds);
 		Configuration configuration = new Configuration(environment);
-		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
-
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);*/
+		
 	}
 
 }
